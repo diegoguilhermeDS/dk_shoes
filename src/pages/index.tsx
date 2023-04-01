@@ -6,52 +6,44 @@ import { GetServerSideProps, GetStaticProps } from "next";
 import { api } from "./services/api";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react";
-import { categories_data } from "../database"
-
+import { categories_data } from "../database";
+import Ul_Cards from "@/components/Cards";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
-  const [borderColorInput, setBorderColorInput] = useState("border-orange-400");
-  const [openModal, setOpenModal] = useState(false)
+  const [categorySelected, setCategorySelected] = useState("Todos");
 
   return (
     <>
       <Head>
         <title>Dk-shoes</title>
         <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+        <link
+          rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        />
       </Head>
-      <header className="bg-white w-full h-20 shadow-sm mb-10">
-        <div className="max-w-5xl mx-auto h-full flex flex-row justify-between items-center">
-          <h1 className="text-3xl font-bold">DK shoes</h1>
-          <div className="h-full flex flex-row justify-between items-center">
-            {/* container de pesquisa */}
-            <div
-              className={`max-w-xs w-full h-10 flex flex-row justify-between items-center ${borderColorInput} border-2 border-solid rounded-md p-2`}
-            >
-              <input
-                type="text"
-                placeholder="Pesquisar"
-                className="outline-none"
-                onMouseDown={() => setBorderColorInput("border-gray-400")}
-                onBlur={() => setBorderColorInput("border-orange-400")}
-              />
-              <button><FontAwesomeIcon icon="coffee" /></button>
-            </div>
-            {/* Carrinho */}
-            <button onClick={() => setOpenModal(!openModal)} >carrinho</button>
-          </div>
-        </div>
-      </header>
       <main className="max-w-5xl mx-auto">
         <section>
           <ul className="flex flex-row justify-around max-w-3xl mx-auto">
-            {categories_data.map((category, index) => <li key={index} className="bg-gray-300 px-2 py-0.5 rounded-xl">{category}</li>)}
+            {categories_data.map((category, index) => (
+              <li
+                key={index}
+                onClick={() => setCategorySelected(category)}
+                className={`${
+                  category === categorySelected
+                    ? "bg-orange-500 "
+                    : "bg-gray-400"
+                } font-semibold text-white px-2 py-1 rounded-md hover:bg-orange-300 selected:bg-red-400 cursor-pointer transition-colors ease-in hover:animate-pulse active:bg-orange-700`}
+              >
+                {category}
+              </li>
+            ))}
           </ul>
+          <Ul_Cards/>
         </section>
       </main>
-      {openModal && <h1>Modal Aberto!</h1>}
     </>
   );
 }
@@ -63,7 +55,7 @@ export default function Home() {
   const revalidatingTime = 60*60*12
   return {
     props: {
-      
+      revalidatingTime
     },
     revalidate: revalidatingTime
   }

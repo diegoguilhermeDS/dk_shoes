@@ -1,11 +1,15 @@
-import '@/styles/globals.css'
-import type { AppProps } from 'next/app'
-import { library } from '@fortawesome/fontawesome-svg-core'
+import "@/styles/globals.css";
+import type { AppProps } from "next/app";
+import { library } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCheckSquare, faCoffee } from '@fortawesome/free-solid-svg-icons'
+import { faCheckSquare, faCoffee } from "@fortawesome/free-solid-svg-icons";
+import MainContainer from "@/components/MainContainer";
 
-
-library.add(faCoffee)
+library.add(faCoffee);
 export default function App({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
+  return (
+    <MainContainer>
+      <Component {...pageProps} />
+    </MainContainer>
+  );
 }
