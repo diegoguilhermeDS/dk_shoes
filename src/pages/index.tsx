@@ -4,7 +4,6 @@ import { Inter } from "next/font/google";
 import styles from "@/styles/Home.module.css";
 import { GetServerSideProps, GetStaticProps } from "next";
 import { api } from "./services/api";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react";
 import { categories_data } from "../database";
 import Ul_Cards from "@/components/Cards";
@@ -19,10 +18,6 @@ export default function Home() {
       <Head>
         <title>Dk-shoes</title>
         <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
-        <link
-          rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-        />
       </Head>
       <main className="max-w-5xl mx-auto">
         <section>
