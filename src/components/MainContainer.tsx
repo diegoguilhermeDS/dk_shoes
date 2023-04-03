@@ -1,21 +1,19 @@
-import React, { useState } from 'react'
-import Header from './Header'
-import Modal from './Modal'
+import React, { useState } from "react";
+import Header from "./Header";
+import Modal from "./Modal";
+import { iMainContainer } from "@/interfaces";
+import { data } from "@/database";
 
-interface iMainContainer {
-    children: React.ReactNode
-}
-
-const MainContainer = ({children}: iMainContainer) => {
-  const [openModal, setOpenModal] = useState(false)
+const Main_Container = ({ children }: iMainContainer) => {
+  const [openModal, setOpenModal] = useState(false);
 
   return (
     <>
-        <Header setOpenModal={setOpenModal}/>
-        <div>{children}</div>
-        {openModal && <Modal setOpenModal={setOpenModal}/>}
+      <Header setOpenModal={setOpenModal} />
+      <div>{children}</div>
+      {openModal && <Modal setOpenModal={setOpenModal} />}
     </>
-  )
-}
+  );
+};
 
-export default MainContainer
+export default Main_Container;

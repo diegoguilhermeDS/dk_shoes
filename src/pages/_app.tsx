@@ -1,11 +1,14 @@
 import "@/styles/globals.css";
 import type { AppProps } from "next/app";
-import MainContainer from "@/components/MainContainer";
+import Main_Container from "@/components/MainContainer";
+import { ProductProvider } from "@/providers/productContext";
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <MainContainer>
-      <Component {...pageProps} />
-    </MainContainer>
+    <ProductProvider>
+      <Main_Container>
+        <Component {...pageProps} />
+      </Main_Container>
+    </ProductProvider>
   );
 }
