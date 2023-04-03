@@ -15,6 +15,15 @@ module.exports = {
         gray: {
           100: "#ededed",
           opacity: "#33333380"
+        },
+        customGray: {
+          50: '#F8FAFC',
+          100: '#F1F5F9',
+          200: '#E2E8F0',
+          300: '#CBD5E1',
+          400: '#94A3B8',
+          500: '#64748B',
+          600: '#475569',
         }
       },
       minHeight: {
