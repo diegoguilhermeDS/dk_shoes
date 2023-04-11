@@ -1,7 +1,8 @@
 import { useProducts } from "@/providers/productContext";
 import React, { useState } from "react";
 import { BiSearch } from "react-icons/bi";
-import { BsCart } from "react-icons/bs";
+import { AiFillHeart } from "react-icons/ai";
+import { HiShoppingCart } from "react-icons/hi";
 
 interface iHeader {
   setOpenModal: React.Dispatch<React.SetStateAction<boolean>>;
@@ -11,12 +12,14 @@ const Header = ({ setOpenModal }: iHeader) => {
   const [borderColorInput, setBorderColorInput] = useState("border-orange-400");
   const [inputValue, setInputValue] = useState("");
   const {searchProduct} = useProducts()
+  const { setCurrentModal } = useProducts();
+  
 
   return (
     <header className="bg-white w-full h-20 shadow-sm">
-      <div className="max-w-5xl mx-auto h-full flex flex-row justify-between items-center">
+      <div className="max-w-5xl w-full mx-auto h-full flex flex-row justify-between items-center">
         <h1 className="text-3xl font-bold">DK shoes</h1>
-        <div className="h-full flex flex-row justify-between items-center gap-2">
+        <div className="h-full flex flex-row justify-between items-center gap-6">
           {/* container de pesquisa */}
           <div
             className={`max-w-xs w-full h-10 flex flex-row justify-between items-center ${borderColorInput} border-2 border-solid rounded-md p-2`}
@@ -36,9 +39,17 @@ const Header = ({ setOpenModal }: iHeader) => {
               <BiSearch />
             </button>
           </div>
+          {/* liked */}
+          <AiFillHeart size={35} color="#ea580c" onClick={() => {
+            setOpenModal(true)
+            setCurrentModal("favorite")
+          }}/>
           {/* Carrinho */}
-          <button onClick={() => setOpenModal(true)}>
-            <BsCart size={20}/>
+          <button onClick={() => {
+            setOpenModal(true)
+            setCurrentModal("cart")
+          }}>
+            <HiShoppingCart size={28} color="#ea580c"/>
           </button>
         </div>
       </div>
