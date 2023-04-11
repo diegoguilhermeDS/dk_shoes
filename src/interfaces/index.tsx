@@ -12,11 +12,10 @@ export interface iProduct {
     value: number;
     addCart: string;
     tag: string[];
+    countCart: number
   }
   
 export  interface iUl_Cards {
     category: string;
     setCategorySelected: React.Dispatch<SetStateAction<string>>;
   }
-
-  
