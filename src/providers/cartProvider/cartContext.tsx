@@ -25,10 +25,7 @@ export const CartProvider = ({children}: iCartProvider) => {
         if(findProcuct){
             const filterCart = oldCart.filter((oldProduct: iProduct) => oldProduct.id !== product.id)
             const addCountProduct = {...product, countCart: product.countCart+=1}
-
-            console.log(addCountProduct);
-            
-            
+                
             const newCart = [...filterCart, addCountProduct]
             localStorage.setItem("@cart", JSON.stringify(newCart))
             getCart()
