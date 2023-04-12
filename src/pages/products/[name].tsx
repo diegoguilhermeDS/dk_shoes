@@ -4,7 +4,7 @@ import { useRouter } from "next/router";
 
 import React from 'react'
 
-export const ProductPage = () => {
+export default function ProductPage() {
     const router = useRouter()
     const { name } = router.query
 
@@ -13,12 +13,12 @@ export const ProductPage = () => {
     <Head>
         <title>Product {name}</title>
     </Head>
-    <div>ProductPage</div>
+    <div>Produto: {name}</div>
     </>
   )
 }
 
-export const getServerSideProps: GetServerSideProps = async (context) => {
+/* export const getServerSideProps: GetServerSideProps = async (context) => {
     const { name } = context.query
     
   
@@ -29,4 +29,4 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
       },
       revalidate: revalidatingTime
     }
-  }
+  } */
