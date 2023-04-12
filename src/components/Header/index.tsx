@@ -16,11 +16,10 @@ const Header = ({ setOpenModal }: iHeader) => {
   
 
   return (
-    <header className="bg-white w-full h-20 shadow-sm">
-      <div className="max-w-5xl w-full mx-auto h-full flex flex-row justify-between items-center">
-        <h1 className="text-3xl font-bold">DK shoes</h1>
-        <div className="h-full flex flex-row justify-between items-center gap-6">
-          {/* container de pesquisa */}
+    <header className="bg-white w-full h-28 md:h-20 shadow-sm md:px-3">
+      <div className="max-w-5xl w-full mx-auto h-full flex flex-col justify-center items-center gap-2 md:flex-row md:justify-between">
+        <h1 className="text-3xl font-bold w-[90%] text-start">DK shoes</h1>
+        <div className="md:h-full flex flex-row justify-between items-center gap-6">
           <div
             className={`max-w-xs w-full h-10 flex flex-row justify-between items-center ${borderColorInput} border-2 border-solid rounded-md p-2`}
           >

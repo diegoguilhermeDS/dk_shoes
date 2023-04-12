@@ -1,8 +1,12 @@
+import { useCart } from "@/providers/cartProvider/cartContext";
 import { useProducts } from "@/providers/productContext";
 import React from "react";
+import { MiniCard } from "../mini_card";
+import { iProduct } from '@/interfaces'
 
 const CartModalContent = () => {
   const { setOpenModal } = useProducts();
+  const { cart } = useCart();
   return (
     <>
       <div className="w-96 bg-white rounded relative rounded-md overflow-hidden animate-animationOpenModal">
@@ -17,7 +21,13 @@ const CartModalContent = () => {
             Carrinho de compras
           </h2>
         </header>
-        <section className="min-h-1"></section>
+        <section className="min-h-1">
+          <ul>
+            {cart.map((product: iProduct) => (
+              <MiniCard key={product.id} product={product}/>
+            ))}
+          </ul>
+        </section>
         <section className="bg-gray-900 w-full p-2 flex flex-col gap-2">
           <div>
             <h3 className="text-white font-semibold text-sm">Quantidade:</h3>
