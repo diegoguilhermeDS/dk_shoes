@@ -7,7 +7,7 @@ const NavCategory = () => {
     useProducts();
 
   return (
-    <ul className="flex flex-row mx-auto w-full bg-orange-500 justify-center overflow-x-auto gap-2 md:gap-8 px-2">
+    <ul className="mx-auto flex w-full flex-row justify-center gap-2 overflow-x-auto bg-orange-500 px-2 md:gap-8">
       {categories_data.map((category, index) => (
         <li
           key={index}
